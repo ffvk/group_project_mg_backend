@@ -1,7 +1,7 @@
-import { GetUsersDto } from './get-users.dto';
+import { GetUsersDTO } from './get-users.dto';
 
-describe('GetUsersDto', () => {
+describe('GetUsersDTO', () => {
   it('should be defined', () => {
-    expect(new GetUsersDto()).toBeDefined();
+    expect(new GetUsersDTO()).toBeDefined();
   });
 });

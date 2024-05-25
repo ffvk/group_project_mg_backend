@@ -1,7 +1,7 @@
-import { RegisterUserDto } from './register-user.dto';
+import { RegisterUserDTO } from './register-user.dto';
 
-describe('RegisterUserDto', () => {
+describe('RegisterUserDTO', () => {
   it('should be defined', () => {
-    expect(new RegisterUserDto()).toBeDefined();
+    expect(new RegisterUserDTO()).toBeDefined();
   });
 });

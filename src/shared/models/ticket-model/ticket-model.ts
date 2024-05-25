@@ -1,4 +1,4 @@
-import { Organization } from 'src/app-modules/organizations/models/organization/organization';
+// import { Organization } from 'src/app-modules/organizations/models/organization/organization';
 import { Permission } from 'src/app-modules/permissions/models/permission/permission';
 // import { Team } from 'src/app-modules/teams/models/team/team';
 import { Token } from 'src/app-modules/tokens/models/token/token';
@@ -6,7 +6,6 @@ import { User } from 'src/app-modules/users/models/user/user';
 import { IResource } from 'src/constants/interfaces';
 
 export class TicketModel {
-  private _organization: Organization;
   // private _teams: Team[];
   private _user: User;
   private _token: Token;
@@ -35,11 +34,11 @@ export class TicketModel {
       token.userId = ticket._user._id;
     }
 
-    if (typeof token.organizationId === 'object') {
-      ticket._organization = token.organizationId;
-      ticket._organization.organizationId = ticket._organization._id;
-      token.organizationId = ticket._organization._id;
-    }
+    // if (typeof token.organizationId === 'object') {
+    //   ticket._organization = token.organizationId;
+    //   ticket._organization.organizationId = ticket._organization._id;
+    //   token.organizationId = ticket._organization._id;
+    // }
 
     ticket._token = token;
 
@@ -60,9 +59,9 @@ export class TicketModel {
     return ticket;
   }
 
-  get organization(): Organization {
-    return this._organization;
-  }
+  // get organization(): Organization {
+  //   return this._organization;
+  // }
 
   // get teams(): Team[] {
   //   return this._teams;

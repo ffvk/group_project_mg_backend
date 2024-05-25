@@ -49,8 +49,8 @@ export class PermissionGuard implements CanActivate {
     }
 
     let permQuery = {
-      resourceId: String(ticket.user.roleId),
-      resourceName: 'Roles',
+      resourceId: String(ticket.token._id),
+      resourceName: 'Tokens',
       resourceAction: ticket.resourceConstant.action,
     };
 
