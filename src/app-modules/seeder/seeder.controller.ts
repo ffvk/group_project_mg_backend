@@ -13,8 +13,8 @@ export class SeederController {
   @Post()
   async seed() {
     await this.usersService.create({
-      name: 'Abhishek Sharma',
-      email: { value: 'abhishek@fordelstudios.com' },
+      name: 'Rakesh Das',
+      email: { value: 'bcarakesh03@gmail.com' },
       phone: {
         countryCode: '+91',
         number: '7076480257',
