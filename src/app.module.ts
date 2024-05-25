@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './app-modules/users/users.module';
 import { PermissionsModule } from './app-modules/permissions/permissions.module';
 import { TokensModule } from './app-modules/tokens/tokens.module';
+import { SeederModule } from './app-modules/seeder/seeder.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { TokensModule } from './app-modules/tokens/tokens.module';
     TokensModule,
     PermissionsModule,
     UsersModule,
+    SeederModule,
   ],
   controllers: [AppController],
   providers: [
