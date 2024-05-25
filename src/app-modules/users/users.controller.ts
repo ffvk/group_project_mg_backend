@@ -30,14 +30,7 @@ import { User } from './models/user/user';
 
 @Controller('users')
 export class UsersController {
-  constructor(
-    private readonly usersService: UsersService,
-    private readonly permissionsService: PermissionsService,
-    private readonly mailerService: MailerService,
-    private readonly helperService: HelperService,
-    private readonly configService: ConfigService,
-    private readonly s3Service: S3Service,
-  ) {}
+  constructor(private readonly usersService: UsersService) {}
 
   @Get()
   @UseGuards(RestrictUsersGuard)

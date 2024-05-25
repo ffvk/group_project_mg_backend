@@ -90,8 +90,8 @@ import { User } from './models/user/user';
         },
       ]),
     ),
-    forwardRef(() => SharedModule),
     forwardRef(() => PermissionsModule),
+    forwardRef(() => SharedModule),
   ],
 
   providers: [UsersService],
