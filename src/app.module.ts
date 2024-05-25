@@ -13,6 +13,8 @@ import { TokenGuard } from './shared/guards/token/token.guard';
 import { HelperService } from './shared/helpers/helper/helper.service';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './app-modules/users/users.module';
+import { PermissionsModule } from './app-modules/permissions/permissions.module';
+import { TokensModule } from './app-modules/tokens/tokens.module';
 
 @Module({
   imports: [
@@ -35,6 +37,8 @@ import { UsersModule } from './app-modules/users/users.module';
     }),
     SharedModule,
     UsersModule,
+    PermissionsModule,
+    TokensModule,
   ],
   controllers: [AppController],
   providers: [
