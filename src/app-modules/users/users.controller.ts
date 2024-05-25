@@ -26,6 +26,7 @@ import { UserIdGuard } from 'src/shared/guards/validators/user-id/user-id.guard'
 import { ParseMongoIdPipe } from 'src/shared/pipes/parse-mongo-id/parse-mongo-id.pipe';
 import { ErrorConstant } from 'src/constants/error';
 import { LoginUserDTO } from './dtos/login-user.dto/login-user.dto';
+import { User } from './models/user/user';
 
 @Controller('users')
 export class UsersController {

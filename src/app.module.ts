@@ -35,10 +35,11 @@ import { TokensModule } from './app-modules/tokens/tokens.module';
       }),
       inject: [ConfigService],
     }),
+
     SharedModule,
-    UsersModule,
-    PermissionsModule,
     TokensModule,
+    PermissionsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [

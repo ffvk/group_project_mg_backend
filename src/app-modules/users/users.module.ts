@@ -91,7 +91,6 @@ import { User } from './models/user/user';
       ]),
     ),
     forwardRef(() => SharedModule),
-    forwardRef(() => TokensModule),
     forwardRef(() => PermissionsModule),
   ],
 
