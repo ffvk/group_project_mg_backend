@@ -2,6 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { MongooseModule } from '@nestjs/mongoose';
+import { OrdersModule } from './app-modules/orders/orders.module';
+import { PermissionsModule } from './app-modules/permissions/permissions.module';
+import { ProductsModule } from './app-modules/products/products.module';
+import { SeederModule } from './app-modules/seeder/seeder.module';
+import { TokensModule } from './app-modules/tokens/tokens.module';
+import { UsersModule } from './app-modules/users/users.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import appConfiguration from './config/app.configuration';
@@ -10,12 +16,7 @@ import { GenericExceptionFilter } from './shared/filters/generic-exception/gener
 import { HttpExceptionFilter } from './shared/filters/http-exception/http-exception.filter';
 import { PermissionGuard } from './shared/guards/permission/permission.guard';
 import { TokenGuard } from './shared/guards/token/token.guard';
-import { HelperService } from './shared/helpers/helper/helper.service';
 import { SharedModule } from './shared/shared.module';
-import { UsersModule } from './app-modules/users/users.module';
-import { PermissionsModule } from './app-modules/permissions/permissions.module';
-import { TokensModule } from './app-modules/tokens/tokens.module';
-import { SeederModule } from './app-modules/seeder/seeder.module';
 
 @Module({
   imports: [
@@ -42,6 +43,8 @@ import { SeederModule } from './app-modules/seeder/seeder.module';
     PermissionsModule,
     UsersModule,
     SeederModule,
+    ProductsModule,
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [

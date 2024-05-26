@@ -1,20 +1,10 @@
 import { Transform } from 'class-transformer';
-import {
-  IsBoolean,
-  IsMongoId,
-  IsNumber,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsMongoId, IsNumber, IsOptional, IsString } from 'class-validator';
 
-export class GetUsersDTO {
+export class GetProductsDTO {
   @IsMongoId()
   @IsOptional()
-  userId: string;
-
-  @IsString()
-  @IsOptional()
-  userIds: string;
+  productId: string;
 
   @IsString()
   @IsOptional()
@@ -22,16 +12,11 @@ export class GetUsersDTO {
 
   @IsString()
   @IsOptional()
-  emailValue: string;
+  description: string;
 
-  @IsBoolean()
   @IsOptional()
-  @Transform(({ value }) => String(value).toLowerCase() === 'true')
-  emailVerified: boolean;
-
-  @IsString()
-  @IsOptional()
-  role: string;
+  @IsNumber()
+  price: number;
 
   @IsOptional()
   @IsNumber()

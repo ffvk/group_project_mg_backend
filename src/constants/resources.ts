@@ -231,5 +231,211 @@ export class ResourceConstant {
     },
   };
 
+  //*****************************************************************//
+  //************************* ORDERS ***************************//
+  //*****************************************************************//
+
+  /**
+   * @description Resource that captures the request to get (*) orders
+   * @constant
+   * @type {Object} GET_ORDERS
+   * @default
+   */
+  public static readonly GET_ORDERS: IResource = {
+    action: 'GET_ORDERS',
+    resource: 'ORDERS',
+    verb: 'GET',
+    endpoint: '/orders',
+    signWith: 'TOKEN',
+    type: 'READ',
+    name: 'List All Orders',
+    description: 'Allows retrieving the list of all orders',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+      CUSTOMER: {
+        role: Roles.CUSTOMER.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
+   * @description Resource that captures the request to add a new order by
+   * creating a new entry in db
+   * @constant
+   * @type {Object} CREATE_ORDERS
+   * @default
+   */
+  public static readonly CREATE_ORDERS: IResource = {
+    action: 'CREATE_ORDERS',
+    resource: 'ORDERS',
+    verb: 'POST',
+    endpoint: '/orders',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Add a new Order',
+    description: 'Allows to add a new order',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+      CUSTOMER: {
+        role: Roles.CUSTOMER.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
+   * @description Resource that captures the request to update a order
+   * @constant
+   * @type {Object} UPDATE_ORDERS
+   * @default
+   */
+  public static readonly UPDATE_ORDERS: IResource = {
+    action: 'UPDATE_ORDERS',
+    resource: 'ORDERS',
+    verb: 'PUT',
+    endpoint: '/orders',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Update an existing Order',
+    description: 'Allows to update an existing order',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
+   * @description Resource that captures the request to delete a order
+   * @constant
+   * @type {Object} DELETE_ORDERS
+   * @default
+   */
+  public static readonly DELETE_ORDERS: IResource = {
+    action: 'DELETE_ORDERS',
+    resource: 'ORDERS',
+    verb: 'DELETE',
+    endpoint: '/orders',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Delete an existing Order',
+    description: 'Allows to delete an existing order',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+    },
+  };
+
+  //*****************************************************************//
+  //************************* PRODUCTS ***************************//
+  //*****************************************************************//
+
+  /**
+   * @description Resource that captures the request to get (*) products
+   * @constant
+   * @type {Object} GET_PRODUCTS
+   * @default
+   */
+  public static readonly GET_PRODUCTS: IResource = {
+    action: 'GET_PRODUCTS',
+    resource: 'PRODUCTS',
+    verb: 'GET',
+    endpoint: '/products',
+    signWith: 'TOKEN',
+    type: 'READ',
+    name: 'List All Products',
+    description: 'Allows retrieving the list of all products',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+      CUSTOMER: {
+        role: Roles.CUSTOMER.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
+   * @description Resource that captures the request to add a new order by
+   * creating a new entry in db
+   * @constant
+   * @type {Object} CREATE_PRODUCTS
+   * @default
+   */
+  public static readonly CREATE_PRODUCTS: IResource = {
+    action: 'CREATE_PRODUCTS',
+    resource: 'PRODUCTS',
+    verb: 'POST',
+    endpoint: '/products',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Add a new Product',
+    description: 'Allows to add a new product',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
+   * @description Resource that captures the request to update a product
+   * @constant
+   * @type {Object} UPDATE_PRODUCTS
+   * @default
+   */
+  public static readonly UPDATE_PRODUCTS: IResource = {
+    action: 'UPDATE_PRODUCTS',
+    resource: 'PRODUCTS',
+    verb: 'PUT',
+    endpoint: '/products',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Update an existing Product',
+    description: 'Allows to update an existing product',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
+   * @description Resource that captures the request to delete a product
+   * @constant
+   * @type {Object} DELETE_PRODUCTS
+   * @default
+   */
+  public static readonly DELETE_PRODUCTS: IResource = {
+    action: 'DELETE_PRODUCTS',
+    resource: 'PRODUCTS',
+    verb: 'DELETE',
+    endpoint: '/products',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Delete an existing Product',
+    description: 'Allows to delete an existing product',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+    },
+  };
+
   private constructor() {}
 }
