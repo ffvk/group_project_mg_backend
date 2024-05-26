@@ -120,6 +120,35 @@ export class ResourceConstant {
   };
 
   /**
+   * @description Resource that captures the request to add a new user by
+   * creating a new entry in db
+   * @constant
+   * @type {Object} UPDATE_USERS
+   * @default
+   */
+
+  public static readonly UPDATE_USERS: IResource = {
+    action: 'UPDATE_USERS',
+    resource: 'USERS',
+    verb: 'PUT',
+    endpoint: '/users',
+    signWith: 'TOKEN',
+    type: 'WRITE',
+    name: 'Register a new User',
+    description: 'Allows to add a new user',
+    roles: {
+      ADMIN: {
+        role: Roles.ADMIN.role,
+        restriction: '',
+      },
+      CUSTOMER: {
+        role: Roles.CUSTOMER.role,
+        restriction: '',
+      },
+    },
+  };
+
+  /**
    * @description Resource that captures the request to login an existing user by
    * validating an existing entry in db
    * @constant
