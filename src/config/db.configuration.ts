@@ -4,7 +4,7 @@ let config = {
   localhost: {
     host: '0.0.0.0',
     port: 27017,
-    name: '<db-name>-local',
+    name: 'oh-local',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -14,7 +14,7 @@ let config = {
   dev: {
     host: '0.0.0.0',
     port: 27017,
-    name: '<db-name>-dev',
+    name: 'oh-dev',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -24,7 +24,7 @@ let config = {
   test: {
     host: '0.0.0.0',
     port: 27017,
-    name: '<db-name>-test',
+    name: 'oh-test',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -34,7 +34,7 @@ let config = {
   production: {
     host: '0.0.0.0',
     port: 27017,
-    name: '<db-name>-prod',
+    name: 'oh-prod',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
