@@ -32,7 +32,12 @@ export interface IResource {
   name: string;
   description: string;
   validateIds?: string[];
-  roles?: IRole[];
+  roles?: { [key: string]: IResourceRoles } | null;
+}
+
+export interface IResourceRoles {
+  role: string;
+  restriction: string;
 }
 
 export interface ISDKResponse {
@@ -63,6 +68,7 @@ export interface IRole {
   description?: string;
   restrictBy?: string;
   childRoles?: string[];
+  visible?: boolean;
 }
 
 export interface IDbError {

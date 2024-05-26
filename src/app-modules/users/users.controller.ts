@@ -38,10 +38,9 @@ export class UsersController {
     return await this.usersService.get(getUsersDTO);
   }
 
-  @Post('subscribers')
+  @Post()
   @UseGuards()
   async registerUser(@Body() registerUserDTO: RegisterUserDTO) {
-    registerUserDTO.email.verified = false;
     return await this.usersService.create(registerUserDTO);
   }
 

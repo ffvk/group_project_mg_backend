@@ -22,4 +22,8 @@ export class RegisterUserDTO {
   @IsEnum(UserRoleEnum)
   @IsNotEmpty()
   role: string;
+
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 }

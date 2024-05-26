@@ -30,36 +30,6 @@ export class UsersService {
       readQuery.name = { $regex: new RegExp(query.name, 'i') };
     }
 
-    if (query.profilePicUrl) {
-      readQuery['profilePic.url'] = {
-        $regex: new RegExp(query.profilePicUrl, 'i'),
-      };
-    }
-
-    if (!isNaN((query.minProfilePicSize = parseInt(query.minProfilePicSize)))) {
-      if (!readQuery['$and']) {
-        readQuery['$and'] = [];
-      }
-
-      readQuery['$and'].push({
-        'profilePic.size': { $gte: query.minProfilePicSize },
-      });
-    }
-
-    if (!isNaN((query.maxProfilePicSize = parseInt(query.maxProfilePicSize)))) {
-      if (!readQuery['$and']) {
-        readQuery['$and'] = [];
-      }
-
-      readQuery['$and'].push({
-        'profilePic.size': { $lte: query.maxProfilePicSize },
-      });
-    }
-
-    if (query.profilePicType) {
-      readQuery['profilePic.type'] = query.profilePicType;
-    }
-
     if (query.emailValue) {
       readQuery['email.value'] = query.emailValue;
     }
@@ -71,72 +41,8 @@ export class UsersService {
       readQuery['email.verified'] = String(query.emailVerified) === 'true';
     }
 
-    if (query.phoneCountryCode) {
-      readQuery['phone.countryCode'] = query.phoneCountryCode;
-    }
-
-    if (query.phoneNumber) {
-      readQuery['phone.number'] = {
-        $regex: new RegExp(query.phoneNumber, 'i'),
-      };
-    }
-
-    if (
-      String(query.phoneVerified) === 'true' ||
-      String(query.phoneVerified) === 'false'
-    ) {
-      readQuery['phone.verified'] = String(query.phoneVerified) === 'true';
-    }
-
     if (query.role) {
       readQuery.role = query.role;
-    }
-
-    if (!isNaN((query.minLastLogin = parseInt(query.minLastLogin)))) {
-      if (!readQuery['$and']) {
-        readQuery['$and'] = [];
-      }
-
-      readQuery['$and'].push({
-        lastLogin: { $gte: query.minLastLogin },
-      });
-    }
-
-    if (!isNaN((query.maxLastLogin = parseInt(query.maxLastLogin)))) {
-      if (!readQuery['$and']) {
-        readQuery['$and'] = [];
-      }
-
-      readQuery['$and'].push({
-        lastLogin: { $lte: query.maxLastLogin },
-      });
-    }
-
-    if (
-      String(query.disabled) === 'true' ||
-      String(query.disabled) === 'false'
-    ) {
-      readQuery.disabled = String(query.disabled) === 'true';
-    }
-
-    if (!isNaN((query.minDateOfBirth = parseInt(query.minDateOfBirth)))) {
-      if (!readQuery['$and']) {
-        readQuery['$and'] = [];
-      }
-
-      readQuery['$and'].push({
-        dateOfBirth: { $gte: query.minDateOfBirth },
-      });
-    }
-
-    if (!isNaN((query.maxDateOfBirth = parseInt(query.maxDateOfBirth)))) {
-      if (!readQuery['$and']) {
-        readQuery['$and'] = [];
-      }
-
-      readQuery['$and'].push({
-        dateOfBirth: { $lte: query.maxDateOfBirth },
-      });
     }
 
     // this is to query multiple fields for a string (mongodb full-text
@@ -217,7 +123,7 @@ export class UsersService {
 
     let foundUser = await this.userModel
       .findOne({
-        'email.value': user.email.value,
+        $or: [{ 'email.value': user.email.value }],
       })
       .exec();
 
@@ -232,8 +138,8 @@ export class UsersService {
 
     newUser.email = new Email();
     newUser.email.value = user.email.value;
-    newUser.email.otp = this.helperService.generateCode(4, 1, '', true);
-    newUser.email.verified = user.email.verified;
+    newUser.email.otp = null;
+    newUser.email.verified = true;
 
     newUser.password = new Password();
     newUser.password.hash = await User.hashPassword(user.password);
@@ -318,18 +224,6 @@ export class UsersService {
       foundUser.role = user.role;
     }
 
-    if (user.lastLogin) {
-      foundUser.lastLogin = new Date(user.lastLogin).getTime();
-    }
-
-    if (String(user.disabled) === 'true' || String(user.disabled) === 'false') {
-      foundUser.disabled = String(user.disabled) === 'true';
-    }
-
-    if (user.dateOfBirth) {
-      foundUser.dateOfBirth = new Date(user.dateOfBirth).getTime();
-    }
-
     foundUser.timestamp.updatedAt = new Date().getTime();
 
     foundUser.wasNew = false;
@@ -349,5 +243,15 @@ export class UsersService {
 
   async delete(userId: string) {
     return await this.userModel.findOneAndDelete({ _id: userId });
+  }
+
+  async deleteBy(query: { [key: string]: any }) {
+    const users = await this.userModel.find(query).exec();
+
+    for (const user of users) {
+      await this.delete(String(user._id));
+    }
+
+    return null;
   }
 }

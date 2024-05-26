@@ -2,9 +2,10 @@ import { registerAs } from '@nestjs/config';
 
 let config = {
   localhost: {
-    port: 4101,
+    port: 4107,
     uploadLimit: '250mb',
     env: 'localhost',
+    uiUrl: 'http://localhost:8100',
     aws: {
       s3: {
         buckets: {
@@ -19,9 +20,10 @@ let config = {
     phoneOTPWaitTime: 60 * 1000, // 1 minute
   },
   dev: {
-    port: 4101,
+    port: 4107,
     uploadLimit: '250mb',
     env: 'dev',
+    uiUrl: 'http://oh.fordelstudios.com',
     aws: {
       s3: {
         buckets: {
@@ -52,7 +54,7 @@ let config = {
   },
 
   production: {
-    port: 4101,
+    port: 4107,
     uploadLimit: '250mb',
     env: 'prod',
     aws: {
