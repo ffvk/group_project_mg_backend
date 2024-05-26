@@ -86,7 +86,7 @@ export class ResourceConstant {
       },
       CUSTOMER: {
         role: Roles.CUSTOMER.role,
-        restriction: 'organizationId',
+        restriction: '',
       },
     },
   };
@@ -114,7 +114,7 @@ export class ResourceConstant {
       },
       CUSTOMER: {
         role: Roles.CUSTOMER.role,
-        restriction: 'organizationId',
+        restriction: '',
       },
     },
   };
@@ -197,7 +197,7 @@ export class ResourceConstant {
       },
       CUSTOMER: {
         role: Roles.CUSTOMER.role,
-        restriction: 'organizationId',
+        restriction: '',
       },
     },
   };

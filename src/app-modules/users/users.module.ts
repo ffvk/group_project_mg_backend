@@ -20,11 +20,6 @@ import { User } from './models/user/user';
           useFactory: async (tokensService: TokensService) => {
             UserSchema.index({ 'email.value': 1 }, { unique: true });
 
-            UserSchema.index(
-              { 'phone.number': 1 },
-              { unique: true, sparse: true },
-            );
-
             // defining text indexes
             UserSchema.index({
               name: 'text',
@@ -42,10 +37,6 @@ import { User } from './models/user/user';
 
                 if (ret.email) {
                   delete ret.email.otp;
-                }
-
-                if (ret.phone) {
-                  delete ret.phone.otp;
                 }
               },
             });

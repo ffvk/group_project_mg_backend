@@ -9,21 +9,13 @@ import { Password } from '../password/password';
 export class User extends Document {
   userId: string;
 
-  name?: string;
-
-  //   profilePic?: Image;
+  name: string;
 
   email: Email;
 
   role: keyof typeof UserRoleEnum;
 
-  lastLogin?: number;
-
   password: Password;
-
-  disabled: boolean = false;
-
-  dateOfBirth?: number;
 
   wasNew: boolean = true;
 
