@@ -13,7 +13,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       {
         name: 'Orders',
         useFactory: () => {
-          OrderSchema.index({ userId: 1, productId: 1 }, { unique: true });
+          // OrderSchema.index({ userId: 1, productId: 1 }, { unique: true });
 
           OrderSchema.set('toJSON', {
             getters: true,
