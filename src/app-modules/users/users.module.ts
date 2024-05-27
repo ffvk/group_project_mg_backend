@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TokensService } from '../tokens/tokens.service';
 import { UserSchema } from './schemas/user.schema/user.schema';
 import { User } from './models/user/user';
+import { OrdersModule } from '../orders/orders.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { User } from './models/user/user';
         {
           name: 'Users',
 
-          imports: [TokensModule],
+          imports: [TokensModule, OrdersModule],
+
           useFactory: async (tokensService: TokensService) => {
             UserSchema.index({ 'email.value': 1 }, { unique: true });
 
@@ -47,6 +49,13 @@ import { User } from './models/user/user';
 
             UserSchema.virtual('tokens', {
               ref: 'Tokens',
+              localField: '_id',
+              foreignField: 'userId',
+              justOne: false,
+            });
+
+            UserSchema.virtual('orders', {
+              ref: 'Orders',
               localField: '_id',
               foreignField: 'userId',
               justOne: false,

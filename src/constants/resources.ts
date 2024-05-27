@@ -103,7 +103,7 @@ export class ResourceConstant {
     resource: 'USERS',
     verb: 'POST',
     endpoint: '/users',
-    signWith: 'TOKEN',
+    signWith: '',
     type: 'WRITE',
     name: 'Register a new User',
     description: 'Allows to add a new user',

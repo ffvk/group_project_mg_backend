@@ -90,6 +90,7 @@ export class OrdersService {
       .find(readQuery)
       .populate('userId')
       .populate('productId')
+      // .populate('userId')
       .select(query.fields)
       .limit(limit)
       .sort(query.sort)
