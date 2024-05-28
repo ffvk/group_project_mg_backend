@@ -21,26 +21,6 @@ let config = {
       useCreateIndex: true,
     },
   },
-  test: {
-    host: '0.0.0.0',
-    port: 27017,
-    name: 'oh-test',
-    options: {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    },
-  },
-  production: {
-    host: '0.0.0.0',
-    port: 27017,
-    name: 'oh-prod',
-    options: {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    },
-  },
 };
 
 export default registerAs('db', () => {
